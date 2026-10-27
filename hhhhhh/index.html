@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050b16">
+  <meta name="description" content="CARWASH — мойка автомобилей, детейлинг и магазин товаров для ухода за авто.">
+  <title>CARWASH — Блеск, который замечают</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <svg class="svg-library" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="i-cart" viewBox="0 0 24 24">
+      <path d="M3 3h2l2.5 12h10.8l2.2-8H6M9 19a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm8 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z"/>
+    </symbol>
+    <symbol id="i-search" viewBox="0 0 24 24">
+      <circle cx="10.8" cy="10.8" r="7.3"/><path d="m16.2 16.2 4.3 4.3"/>
+    </symbol>
+    <symbol id="i-drop" viewBox="0 0 24 24">
+      <path d="M12 2S4.5 10 4.5 15a7.5 7.5 0 0 0 15 0C19.5 10 12 2 12 2Z"/>
+    </symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>
+    </symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24">
+      <path d="M7 3H4a1 1 0 0 0-1 1c0 9.4 7.6 17 17 17a1 1 0 0 0 1-1v-3l-5-2-2 3a15 15 0 0 1-7-7l3-2-2-5Z"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24">
+      <path d="m5 12 4 4L19 6"/>
+    </symbol>
+    <symbol id="i-close" viewBox="0 0 24 24">
+      <path d="m6 6 12 12M18 6 6 18"/>
+    </symbol>
+  </svg>
+
+  <header class="header" id="top">
+    <div class="container nav-wrap">
+      <a href="#home" class="logo">
+        <span class="logo-car">CAR<span>WASH</span></span>
+        <small>БЛЕСК, КОТОРЫЙ ЗАМЕЧАЮТ</small>
+      </a>
+
+      <button class="menu-toggle icon-button" id="menuToggle"
+        aria-label="Открыть меню" aria-expanded="false">
+        <span class="menu-lines"></span>
+      </button>
+
+      <nav class="nav" id="nav">
+        <a href="#home" class="nav-link active">Главная</a>
+        <a href="#services" class="nav-link">Услуги</a>
+        <a href="#shop" class="nav-link">Магазин</a>
+        <a href="#about" class="nav-link">О нас</a>
+        <a href="#contacts" class="nav-link">Контакты</a>
+      </nav>
+
+      <form class="header-search" id="searchForm" role="search">
+        <input id="globalSearch" type="search"
+          placeholder="Найти услугу или товар..." autocomplete="off"
+          aria-label="Поиск по сайту">
+        <button type="submit" aria-label="Искать">
+          <svg><use href="#i-search"/></svg>
+        </button>
+        <div class="search-results" id="searchResults" hidden></div>
+      </form>
+
+      <button class="cart-button" id="openCart" aria-label="Открыть корзину">
+        <svg><use href="#i-cart"/></svg>
+        <span>Корзина</span>
+        <b class="cart-count" id="cartCount">0</b>
+      </button>
+
+      <a class="button button-primary header-book" href="#booking">Записаться</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. ГЛАВНАЯ -->
+    <section class="hero" id="home">
+      <div class="hero-photo"></div>
+      <div class="container hero-content">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="status-dot"></span> ПРЕМИАЛЬНЫЙ УХОД ЗА АВТО</span>
+          <h1>ТВОЙ АВТОМОБИЛЬ<br>ЗАСЛУЖИВАЕТ<br><span>ИДЕАЛЬНОГО БЛЕСКА!</span></h1>
+          <p>Профессиональная мойка, бережный уход и безупречная чистота каждой детали.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#services">Выбрать услугу <span>→</span></a>
+            <a class="button button-outline" href="#shop">Магазин товаров</a>
+          </div>
+          <div class="hero-features">
+            <div><strong>8+</strong><span>видов услуг</span></div>
+            <div><strong>12+</strong><span>товаров для авто</span></div>
+            <div><strong>100%</strong><span>внимание к деталям</span></div>
+          </div>
+        </div>
+      </div>
+      <a href="#services" class="scroll-cue" aria-label="Перейти к услугам">↓</a>
+    </section>
+
+    <!-- 2. УСЛУГИ -->
+    <section class="section" id="services">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">ЧИСТОТА ДО МЕЛОЧЕЙ</span>
+            <h2>Услуги <span>автомойки</span></h2>
+            <p>Подбери уход, который подходит именно твоему автомобилю.</p>
+          </div>
+          <a href="#booking" class="text-link">Записаться на мойку ↗</a>
+        </div>
+
+        <div class="filter-row" id="serviceFilters">
+          <button class="filter-chip selected" data-filter="all">Все услуги</button>
+          <button class="filter-chip" data-filter="Мойка">Мойка</button>
+          <button class="filter-chip" data-filter="Химчистка">Химчистка</button>
+          <button class="filter-chip" data-filter="Детейлинг">Детейлинг</button>
+          <button class="filter-chip" data-filter="Полировка">Полировка</button>
+        </div>
+
+        <div class="service-grid" id="servicesGrid"></div>
+      </div>
+    </section>
+
+    <!-- 3. МАГАЗИН -->
+    <section class="section shop-section" id="shop">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">УХОД ЗА ТВОИМ АВТО</span>
+            <h2>Магазин <span>товаров</span></h2>
+            <p>Инструменты, автохимия, аксессуары и готовые наборы.</p>
+          </div>
+          <div class="shop-total">
+            <span>Товаров в каталоге</span>
+            <strong id="productCount">12</strong>
+          </div>
+        </div>
+
+        <div class="shop-toolbar">
+          <div class="filter-row" id="productFilters">
+            <button class="filter-chip selected" data-filter="all">Все товары</button>
+            <button class="filter-chip" data-filter="Инструменты">Инструменты</button>
+            <button class="filter-chip" data-filter="Автохимия">Автохимия</button>
+            <button class="filter-chip" data-filter="Аксессуары">Аксессуары</button>
+            <button class="filter-chip" data-filter="Наборы">Наборы</button>
+          </div>
+          <label class="sort-label">
+            Сортировка
+            <select id="productSort">
+              <option value="popular">По популярности</option>
+              <option value="low">Сначала дешевле</option>
+              <option value="high">Сначала дороже</option>
+              <option value="name">По названию</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="product-grid" id="productsGrid"></div>
+        <p class="empty-state" id="noProducts" hidden>По этому запросу ничего не найдено. Попробуй изменить поиск.</p>
+      </div>
+    </section>
+
+    <!-- БАННЕР -->
+    <section class="promo-section">
+      <div class="container">
+        <div class="promo-card">
+          <div class="promo-copy">
+            <span class="eyebrow">ИДЕЯ ДЛЯ ПОДАРКА</span>
+            <h2>CARWASH <span>GIFT BOX</span></h2>
+            <p>Всё необходимое для чистого автомобиля — в одном стильном наборе.</p>
+            <ul class="check-list">
+              <li>Микрофибровые полотенца</li>
+              <li>Шампунь и средства для ухода</li>
+              <li>Щётка и аксессуары</li>
+            </ul>
+            <button class="button button-primary" id="promoAdd">Добавить набор в корзину</button>
+          </div>
+          <div class="promo-image">
+            <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=1000&q=85"
+              alt="Профессиональный уход за автомобилем" loading="lazy">
+            <span class="image-label">CAR CARE COLLECTION</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. О КОМПАНИИ -->
+    <section class="section" id="about">
+      <div class="container about-grid">
+        <div class="about-photo">
+          <img src="https://images.unsplash.com/photo-1632823471565-1ecdf5c2c5b2?auto=format&fit=crop&w=1000&q=85"
+            alt="Чистый автомобиль после ухода" loading="lazy">
+          <div class="photo-stamp"><strong>CARWASH</strong><span>Уход с характером</span></div>
+        </div>
+        <div class="about-copy">
+          <span class="eyebrow">КТО МЫ ТАКИЕ</span>
+          <h2>Блеск, который <span>замечают</span></h2>
+          <p>CARWASH — концепция современной автомойки для тех, кто ценит чистоту, аккуратность и правильный уход за автомобилем.</p>
+          <p>Мы объединили услуги мойки и детейлинга с магазином полезных товаров, чтобы уход за машиной был удобным в одном месте.</p>
+          <div class="about-points">
+            <div><span class="point-icon"><svg><use href="#i-check"/></svg></span><div><strong>Бережный подход</strong><small>Уделяем внимание каждой детали</small></div></div>
+            <div><span class="point-icon"><svg><use href="#i-drop"/></svg></span><div><strong>Чистота и порядок</strong><small>Подбираем уход под задачу</small></div></div>
+            <div><span class="point-icon"><svg><use href="#i-clock"/></svg></span><div><strong>Удобная запись</strong><small>Выбирай услугу и время онлайн</small></div></div>
+          </div>
+          <a href="#contacts" class="button button-outline">Связаться с нами ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ОТЗЫВЫ -->
+    <section class="section reviews-section" id="reviews">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">МНЕНИЕ КЛИЕНТОВ</span>
+            <h2>Отзывы <span>о нас</span></h2>
+            <p>Примеры оформления отзывов для демонстрации дизайна сайта.</p>
+          </div>
+          <span class="demo-note">Демонстрационные отзывы</span>
+        </div>
+        <div class="review-grid">
+          <article class="review-card">
+            <div class="review-top"><span class="review-avatar">А</span><div><strong>Александр</strong><small>Мойка кузова</small></div><span class="stars">★★★★★</span></div>
+            <p>«Машина выглядит отлично, кузов блестит. Удобно, что можно заранее выбрать услугу».</p>
+          </article>
+          <article class="review-card">
+            <div class="review-top"><span class="review-avatar">Т</span><div><strong>Тимур</strong><small>Химчистка салона</small></div><span class="stars">★★★★★</span></div>
+            <p>«Аккуратный подход к салону и понятный список услуг. Дизайн магазина тоже удобный».</p>
+          </article>
+          <article class="review-card">
+            <div class="review-top"><span class="review-avatar">С</span><div><strong>Сардор</strong><small>Набор для авто</small></div><span class="stars">★★★★★</span></div>
+            <p>«В наборе удобно собрать всё для ухода за машиной. Хорошая идея для подарка».</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. КОНТАКТЫ И ЗАПИСЬ -->
+    <section class="section contact-section" id="contacts">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">МЫ НА СВЯЗИ</span>
+            <h2>Контакты <span>и запись</span></h2>
+            <p>Выбери услугу и оставь заявку на удобное время.</p>
+          </div>
+        </div>
+
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="contact-item"><span class="contact-icon"><svg><use href="#i-phone"/></svg></span><div><small>Телефон</small><a href="tel:+998901234567">+998 90 123 45 67</a></div></div>
+            <div class="contact-item"><span class="contact-icon"><svg><use href="#i-drop"/></svg></span><div><small>Адрес</small><strong>Ташкент, Узбекистан</strong><p>Демонстрационный адрес — замени на свой.</p></div></div>
+            <div class="contact-item"><span class="contact-icon"><svg><use href="#i-clock"/></svg></span><div><small>Время работы</small><strong>Ежедневно, 09:00–22:00</strong></div></div>
+            <div class="contact-note">Это демонстрационный сайт. Контакты и запись необходимо настроить под реальную компанию.</div>
+          </div>
+
+          <form class="booking-form" id="bookingForm">
+            <h3>Запись на мойку</h3>
+            <p>Заполни форму — заявка появится на экране.</p>
+            <label>Твоё имя<input type="text" name="name" placeholder="Например, Али" required minlength="2" maxlength="60"></label>
+            <label>Номер телефона<input type="tel" name="phone" placeholder="+998 90 123 45 67" required minlength="7" maxlength="25"></label>
+            <label>Услуга<select name="service" id="bookingService" required><option value="">Выбери услугу</option></select></label>
+            <div class="form-row">
+              <label>Дата<input type="date" name="date" id="bookingDate" required></label>
+              <label>Время<select name="time" required><option value="">Время</option><option>09:00</option><option>10:00</option><option>11:00</option><option>12:00</option><option>13:00</option><option>14:00</option><option>15:00</option><option>16:00</option><option>17:00</option><option>18:00</option><option>19:00</option><option>20:00</option><option>21:00</option></select></label>
+            </div>
+            <label>Комментарий<textarea name="message" placeholder="Марка автомобиля или пожелания" rows="3" maxlength="500"></textarea></label>
+            <button type="submit" class="button button-primary button-full">Подготовить заявку ↗</button>
+            <p class="form-disclaimer">Заявка не отправляется на сервер. Для реального бронирования потребуется подключение backend или сервиса сообщений.</p>
+            <div class="form-message" id="bookingMessage" role="status" hidden></div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-top">
+      <a href="#home" class="logo">
+        <span class="logo-car">CAR<span>WASH</span></span>
+        <small>БЛЕСК, КОТОРЫЙ ЗАМЕЧАЮТ</small>
+      </a>
+      <p>Уход за автомобилем с вниманием к деталям.</p>
+      <a href="#top" class="back-top">↑ Наверх</a>
+    </div>
+    <div class="container footer-bottom">
+      <span>© <span id="year"></span> CARWASH. Демонстрационный проект.</span>
+      <span>HTML · CSS · JavaScript</span>
+    </div>
+  </footer>
+
+  <!-- КОРЗИНА -->
+  <div class="overlay" id="cartOverlay" hidden>
+    <aside class="drawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+      <div class="drawer-head">
+        <div><span class="eyebrow">ТВОИ ПОКУПКИ</span><h2 id="cartTitle">Корзина</h2></div>
+        <button class="icon-button close-cart" id="closeCart" aria-label="Закрыть корзину"><svg><use href="#i-close"/></svg></button>
+      </div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-empty" id="cartEmpty"><div class="empty-cart-icon"><svg><use href="#i-cart"/></svg></div><h3>Пока пусто</h3><p>Добавь товары из магазина — они появятся здесь.</p><button class="button button-outline" id="continueShopping">Перейти в магазин</button></div>
+      <div class="cart-footer" id="cartFooter" hidden>
+        <div class="cart-total-row"><span>Итого</span><strong id="cartTotal">0 сум</strong></div>
+        <button class="button button-primary button-full" id="checkoutButton">Оформить заявку</button>
+        <small>Это демонстрационная корзина. Оплата не подключена.</small>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ПОДРОБНОСТИ -->
+  <div class="overlay" id="detailOverlay" hidden>
+    <div class="modal detail-modal" role="dialog" aria-modal="true" aria-labelledby="detailTitle">
+      <button class="icon-button modal-close" id="closeDetail" aria-label="Закрыть"><svg><use href="#i-close"/></svg></button>
+      <div id="detailContent"></div>
+    </div>
+  </div>
+
+  <!-- УВЕДОМЛЕНИЯ -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
